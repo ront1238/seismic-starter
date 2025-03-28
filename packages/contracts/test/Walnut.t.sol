@@ -10,7 +10,7 @@ contract WalnutTest is Test {
     function setUp() public {
         walnut = new Walnut(2, uint256(0));
 
-        saddress a = saddress(0x123);
+        address a = address(0x123);
         console.log(address(a));
     }
 
