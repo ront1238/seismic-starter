@@ -6,8 +6,8 @@ contract Walnut {
     uint256 shellStrength; // The current shell strength.
     uint256 round; // The current round number.
 
-    suint256 initialKernel; // The initial hidden kernel value for resets.
-    suint256 kernel; // The current hidden kernel value.
+    uint256 initialKernel; // The initial hidden kernel value for resets.
+    uint256 kernel; // The current hidden kernel value.
 
     // Tracks the number of hits per player per round.
     mapping(uint256 => mapping(address => uint256)) hitsPerRound;
@@ -21,7 +21,7 @@ contract Walnut {
     // Event to log resets.
     event Reset(uint256 indexed newRound, uint256 remainingShellStrength);
 
-    constructor(uint256 _shellStrength, suint256 _kernel) {
+    constructor(uint256 _shellStrength, uint256 _kernel) {
         initialShellStrength = _shellStrength; // Set the initial shell strength.
         shellStrength = _shellStrength; // Initialize the shell strength.
 
@@ -44,7 +44,7 @@ contract Walnut {
     }
 
     // Shake the Walnut to increase the kernel value.
-    function shake(suint256 _numShakes) public requireIntact {
+    function shake(uint256 _numShakes) public requireIntact {
         kernel += _numShakes; // Increment the kernel value.
         emit Shake(round, msg.sender); // Log the shake.
     }
